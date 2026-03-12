@@ -5,7 +5,7 @@
   "license": "MIT",
   "type": "module",
   "bin": {
-    "nextjs-favicon": "./dist/cli.js"
+    "nextjs-favicon": "./dist/cli.cjs"
   },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
