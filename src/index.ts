@@ -2,6 +2,7 @@ import { resolve } from "path";
 import { detect } from "./detect.js";
 import { generate } from "./generate.js";
 import { writeManifest } from "./manifest.js";
+import { patchLayout } from "./layout.js";
 import { patchDocument } from "./document.js";
 import type { Options, WrittenFiles } from "./types.js";
 
@@ -20,20 +21,15 @@ export async function run(opts: Options): Promise<WrittenFiles> {
   files.push(...generated);
 
   if (opts.manifest) {
-    const manifestFile = await writeManifest(
-      detected,
-      cwd,
-      name,
-      opts.bgColor,
-      opts.themeColor
-    );
+    const manifestFile = await writeManifest(detected, cwd, name, opts.bgColor, opts.themeColor);
     files.push(manifestFile);
   }
 
-  // App router: Next.js auto-discovers favicons via file conventions — no patching needed.
-  // Pages router: inject <link> tags into _document.tsx.
-  if (opts.patch && detected.router === "pages") {
-    const patched = await patchDocument(detected, cwd);
+  if (opts.patch) {
+    const patched =
+      detected.router === "app"
+        ? await patchLayout(detected, cwd, name)
+        : await patchDocument(detected, cwd, name);
     if (patched) files.push(patched);
   }
 
