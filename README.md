@@ -18,15 +18,15 @@ yarn dlx nextjs-favicon <source> [options]
 
 ### Options
 
-| Option                  | Default         | Description                                          |
-| ----------------------- | --------------- | ---------------------------------------------------- |
-| `-n, --name <name>`     | `"My App"`      | App name used in the web manifest                    |
-| `--bg-color <color>`    | `"#ffffff"`     | Manifest `background_color`                          |
-| `--theme-color <color>` | `"#000000"`     | Manifest `theme_color`                               |
-| `--no-manifest`         | —               | Skip `site.webmanifest` / `manifest.json` generation |
-| `--no-patch`            | —               | Skip patching `layout.tsx` or `_document.tsx`        |
-| `--router <type>`       | auto-detected   | Force router type: `app` or `pages`                  |
-| `--cwd <path>`          | `process.cwd()` | Project root directory                               |
+| Option                  | Default         | Description                                                  |
+| ----------------------- | --------------- | ------------------------------------------------------------ |
+| `-n, --name <name>`     | `"My App"`      | App name used in the web manifest and `appleWebApp` metadata |
+| `--bg-color <color>`    | `"#ffffff"`     | Manifest `background_color`                                  |
+| `--theme-color <color>` | `"#000000"`     | Manifest `theme_color`                                       |
+| `--no-manifest`         | —               | Skip `site.webmanifest` / `manifest.json` generation         |
+| `--no-patch`            | —               | Skip patching `layout.tsx` or `_document.tsx`                |
+| `--router <type>`       | auto-detected   | Force router type: `app` or `pages`                          |
+| `--cwd <path>`          | `process.cwd()` | Project root directory                                       |
 
 ### Examples
 
